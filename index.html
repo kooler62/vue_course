@@ -8,10 +8,10 @@
 
 <div id="app">
     <h2>Counter: {{ counter}}</h2>
-    <button @click="addToCounter(5)">+5</button>
-    <button @click="addToCounter()">+1</button>
-    <button @click="subFromCounter()">-1</button>
-    <button @click="subFromCounter(4)">-4</button>
+    <button @click="addToCounter(5, $event)">+5</button>
+    <button @click="addToCounter(1, $event)">+1</button>
+    <button @click="subFromCounter(1, $event)">-1</button>
+    <button @click="subFromCounter(4, $event)">-4</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -21,10 +21,16 @@
     new Vue({
         el: '#app',
         data: {
-            counter: 0
+            counter: 0,
+            title: 'Счетчик'
         },
         methods: {
-            addToCounter: function (i = 1) {
+            addToCounter: function (i = 1, event) {
+                if (i === 5){
+                    event.target.style.color = 'red';
+                }else {
+                    event.target.style.color = 'blue';
+                }
                 this.counter += i;
             },
             subFromCounter: function (i = 1) {

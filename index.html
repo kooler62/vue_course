@@ -7,7 +7,11 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+    <h2>Counter: {{ counter}}</h2>
+    <button @click="addToCounter(5)">+5</button>
+    <button @click="addToCounter()">+1</button>
+    <button @click="subFromCounter()">-1</button>
+    <button @click="subFromCounter(4)">-4</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -17,7 +21,15 @@
     new Vue({
         el: '#app',
         data: {
-
+            counter: 0
+        },
+        methods: {
+            addToCounter: function (i = 1) {
+                this.counter = this.counter + i;
+            },
+            subFromCounter: function (i = 1) {
+                this.counter = this.counter - i;
+            },
         }
     });
 </script>

@@ -7,7 +7,20 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+    <h2 @mouseover="onHover">Counter: {{ counter}}</h2>
+    <button v-on:click="addToCounter">+1</button>
+    <button v-on:click="subFromCounter">-1</button>
+    или
+    <button @click="addToCounter">+1</button>
+    <button @click="subFromCounter">-1</button>
+    или
+    <hr>
+    без методов
+    <button v-on:click="counter++">+1</button>
+    <button v-on:click="counter--">-1</button>
+    супер
+    <button @click="counter++">+1</button>
+    <button @click="counter--">-1</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -17,6 +30,20 @@
     new Vue({
         el: '#app',
         data: {
+            counter: 0
+        },
+        methods: {
+            addToCounter: function () {
+                // this.counter = this.counter + 1;
+                this.counter++;
+            },
+            subFromCounter: function () {
+                // this.counter = this.counter - 1;
+                this.counter--;
+            },
+            onHover: function (event) {
+                event.target.style.color = 'red';
+            },
 
         }
     });

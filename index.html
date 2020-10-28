@@ -7,15 +7,38 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
-</div>
+    <h1>String: {{ message}}</h1>
+    <h2>Sum: {{ 1 + 2 }}</h2>
+    <input type="text" v-model="message">
 
+    <pre>{{ $data }}</pre>
+    <div class="students">
+        <h3>{{ sayHello() }}</h3>
+
+        <h3>Age: {{ age }}</h3>
+        <h3>IF Statement: {{ isStudent ? 'I am a Student' : 'I am not a Student' }}</h3>
+        <h3>Functions: {{ string.split('').reverse('').join('') }}</h3>
+
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
 
 <script>
     new Vue({
-        el: '#app'
+        el: '#app',
+        data: {
+            message: 'Vue is alive!',
+            age: '34',
+            isStudent: true,
+            name: 'Vova',
+            string: 'My name is Vova'
+        },
+        methods: {
+            sayHello: function () {
+                return 'Hello my name is ' + this.name;
+            }
+        }
     });
 </script>
 

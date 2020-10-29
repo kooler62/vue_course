@@ -7,7 +7,8 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+    <input type="text" @keyUp="alertValue">
+    <input type="text" @keyUp.enter.up="alertValue2">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -16,8 +17,16 @@
 <script>
     new Vue({
         el: '#app',
-        data: {
-
+        data: {},
+        methods:{
+            alertValue: function (event) {
+                if (event.keyCode === 13){
+                    alert(  event.target.value);
+                }
+            },
+            alertValue2: function (event) {
+                alert(  event.target.value);
+            }
         }
     });
 </script>

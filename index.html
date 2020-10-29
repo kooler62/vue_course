@@ -7,7 +7,26 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+    <h2>Counter: {{ counter}}</h2>
+    <button @click="addToCounter(5, $event)">+5</button>
+    <button @click="addToCounter(1, $event)">+1</button>
+    <button @click="subFromCounter(1, $event)">-1</button>
+    <button @click="subFromCounter(4, $event)">-4</button>
+    <hr>
+
+    <a href="https://google.com" target="_blank" @click="clickOnGoogle">google</a>
+    или
+    <a href="https://google.com" target="_blank" @click.prevent>google</a>
+
+
+    модификаторы событий
+    .stop - stopPropagation()
+    .prevent - preventDefault() - отменяет события по умолчанию
+    .capture - preventDefault() - отменяет события по умолчанию
+    .self
+    .once - событие вызовится только один раз
+    .passive
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -17,7 +36,24 @@
     new Vue({
         el: '#app',
         data: {
-
+            counter: 0,
+            title: 'Счетчик'
+        },
+        methods: {
+            addToCounter: function (i = 1, event) {
+                if (i === 5) {
+                    event.target.style.color = 'red';
+                } else {
+                    event.target.style.color = 'blue';
+                }
+                this.counter += i;
+            },
+            subFromCounter: function (i = 1) {
+                this.counter -= i;
+            },
+            clickOnGoogle: function (event) {
+                event.preventDefault();
+            }
         }
     });
 </script>

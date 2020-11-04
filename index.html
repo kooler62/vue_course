@@ -7,7 +7,27 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+
+    <ul>
+        <li v-for="student in students">{{ student }}</li>
+    </ul>
+
+    <ul>
+        <li v-for="(student, index) in students">{{ index + 1 }} - {{ student }}</li>
+    </ul>
+
+
+    <ul>
+        <li v-for="student in studentsObjects">{{ student.name }} is {{ student.age }} year old</li>
+    </ul>
+
+
+    <span v-for="n in 10">{{ n }}</span>
+
+
+    <li v-for="(value, key, index) in person">{{ index + 1 }} {{ key }} {{ value }}</li>
+
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -17,7 +37,13 @@
     new Vue({
         el: '#app',
         data: {
-
+            students: ['Ann', 'Alex', 'Bob'],
+            studentsObjects: [
+                {name: 'Oleh', age: 12},
+                {name: 'John', age: 32}
+            ],
+            person:
+                {name: 'Oleh', age: 12, job: 'Builder'}
         }
     });
 </script>

@@ -7,7 +7,42 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+    групировка элементов в один корневой тег html 5  template
+    <tempate v-if="isVisible">
+    <h2>title</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, similique.</p>
+    </tempate>
+
+    <tempate v-else>
+        <h2 style="color: red">title</h2>
+        <p style="color: red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, similique.</p>
+    </tempate>
+
+    <hr>
+
+
+    <h2 v-if="char === 'a'">A</h2>
+    <h2 v-else-if="char === 'b'">B</h2>
+    <h2 v-else-if="char === 'c'">C</h2>
+    <h2 v-else>Not match</h2>
+    <input type="text" v-model="char">
+    <hr>
+
+    отображает все со стилями display none
+    <h2 v-show="isVisible">Visible</h2>
+    <h2 v-show="!isVisible">Not Visible</h2>
+
+    <hr>
+
+    удаляем эелмент из дом дерева
+    <h2 v-if="isVisible">Visible</h2>
+    <h2 v-if="!isVisible">Not Visible</h2>
+    или
+    <h2 v-if="isVisible">Visible</h2>
+    <h2 v-else>Not Visible</h2>
+
+    <button @click="isVisible =! isVisible">Togle</button>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -17,7 +52,8 @@
     new Vue({
         el: '#app',
         data: {
-
+            isVisible: false,
+            char: 'a'
         }
     });
 </script>

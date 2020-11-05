@@ -7,19 +7,52 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+    <h1>{{ title }}</h1>
+    <h3>{{ newField}}</h3>
 </div>
+<hr>
+<div id="app2">
+    <h1>{{ title }}</h1>
+
+    <button @click="changeFirstTitle">Change</button>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
 
 <script>
-    new Vue({
+    var vue1 = new Vue({
         el: '#app',
         data: {
-
+            title: 'Title 1'
+        },
+        methods: {
+            alertTest: function () {
+                alert('I am from App1')
+            }
         }
     });
+
+    vue1.newField = 'this is new field';
+    console.log(vue1.title);
+
+    new Vue({
+        el: '#app2',
+        data: {
+            title: 'Title 2'
+        },
+        methods: {
+            changeFirstTitle: function () {
+                vue1.title = "Change title from second App";
+                vue1.newField = 'AAAAAAAAA';
+                setTimeout(function () {
+                    vue1.alertTest()
+                }, 1000)
+            }
+        }
+    });
+
 </script>
 
 

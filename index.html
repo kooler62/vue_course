@@ -6,23 +6,69 @@
 </head>
 <body>
 
+
+<style>
+    .large {
+        font-size: 50px
+    }
+
+    .border {
+        border: solid red 1px
+    }
+</style>
+
 <div id="app">
-    <!--    <h1>The {{ message}}</h1>-->
+    передача класов как обьект
+    <button :class="{'large': fontSize, 'border': border}">{{ title }}</button>
+    передача строкой
+    <button :class="fontSize ? 'large': ''">{{ title }}</button>
+    передача масивом
+    <button :class="[fontSize ? 'large': '', {border:border}]">{{ title }}</button>
+
+    передача через методы() или computed без скобок
+    <button :class="getCss">{{ title }}</button>
+    <ul>
+        <li>
+            <input type="checkbox" v-model="fontSize">
+            <label for="">Font Size</label>
+        </li>
+        <li>
+            <input type="checkbox" v-model="border">
+            <label for="">Border</label>
+        </li>
+    </ul>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
 
 <script>
-    var vue = new Vue({
-        // el: '#app',
-        template: '<div><h1>The {{ message}}</h1></div>',
+    new Vue({
+        el: '#app',
         data: {
-            message: 'Vue is alive!'
-        }
+            title: 'Button',
+            border: false,
+            fontSize: false,
+        },
+        methods: {
+            getCss () {
+                return {
+                    'large': this.fontSize,
+                    'border': this.border,
+                }
+            }
+        },
+        // computed: {
+        //     getCss () {
+        //         return {
+        //             'large': this.fontSize,
+        //             'border': this.border,
+        //         }
+        //     }
+        // }
     });
-    
-    vue.$mount('#app')
+
 </script>
 
 

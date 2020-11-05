@@ -7,7 +7,8 @@
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+    <h1 ref="heading">{{ title}}</h1>
+    <button @click="changeTitle">Change Title</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -17,7 +18,17 @@
     new Vue({
         el: '#app',
         data: {
-
+            title: 'Title'
+        },
+        methods: {
+            changeTitle: function () {
+                this.title = 'New Title';
+                this.$refs.heading.style.color ='pink';
+                document.querySelector('h1');
+                console.log(this.$refs)
+                //лучше использовать $refs чем document.querySelector так как он быстрее
+                console.log( document.querySelector('h1'))
+            }
         }
     });
 </script>

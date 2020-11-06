@@ -4,10 +4,45 @@
     <meta charset="utf-8">
     <title>Vue Course</title>
 </head>
+<style>
+    .large {
+        font-size: 50px;
+    }
+
+    .border {
+        border: 1px solid red;
+    }
+
+</style>
 <body>
 
 <div id="app">
-    <h1>Hello Vue!</h1>
+
+    без computed
+    <button :class="getCss" :style="{'background':bgColor, 'margin-left':range + 'px'}">{{ title }}</button>
+    рефактор через computed styles
+    <button :class="getCss" :style="styles">{{ title }}</button>
+
+
+    <ul>
+        <li>
+            <input type="checkbox" v-model="fontSize">
+            <label for="">Font Size</label>
+        </li>
+        <li>
+            <input type="checkbox" v-model="border">
+            <label for="">Border</label>
+        </li>
+        <li>
+            <input type="text" v-model="bgColor">
+            <label for="">Color</label>
+        </li>
+        <li>
+            <input type="range" v-model="range">
+            <label for="">range</label>
+        </li>
+    </ul>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -17,7 +52,26 @@
     new Vue({
         el: '#app',
         data: {
-
+            title: 'test button',
+            fontSize: false,
+            border: false,
+            bgColor: 'pink',
+            range: 20,
+        },
+        computed: {
+            getCss() {
+                return {
+                    'large': this.fontSize,
+                    'border': this.border,
+                    'bgColor': this.bgColor
+                }
+            },
+            styles() {
+                return {
+                    'background': this.bgColor,
+                    'margin-left': this.range + 'px'
+                }
+            }
         }
     });
 </script>

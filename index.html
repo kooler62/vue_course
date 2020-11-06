@@ -4,45 +4,13 @@
     <meta charset="utf-8">
     <title>Vue Course</title>
 </head>
-<style>
-    .large {
-        font-size: 50px;
-    }
 
-    .border {
-        border: 1px solid red;
-    }
-
-</style>
 <body>
 
 <div id="app">
-
-    без computed
-    <button :class="getCss" :style="{'background':bgColor, 'margin-left':range + 'px'}">{{ title }}</button>
-    рефактор через computed styles
-    <button :class="getCss" :style="styles">{{ title }}</button>
-
-
-    <ul>
-        <li>
-            <input type="checkbox" v-model="fontSize">
-            <label for="">Font Size</label>
-        </li>
-        <li>
-            <input type="checkbox" v-model="border">
-            <label for="">Border</label>
-        </li>
-        <li>
-            <input type="text" v-model="bgColor">
-            <label for="">Color</label>
-        </li>
-        <li>
-            <input type="range" v-model="range">
-            <label for="">range</label>
-        </li>
-    </ul>
-
+    <h1>{{ title }}</h1>
+    <button @click="title ='Change Title'">Change</button>
+    <button @click="doDestroy">Destroy</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -53,26 +21,41 @@
         el: '#app',
         data: {
             title: 'test button',
-            fontSize: false,
-            border: false,
-            bgColor: 'pink',
-            range: 20,
         },
-        computed: {
-            getCss() {
-                return {
-                    'large': this.fontSize,
-                    'border': this.border,
-                    'bgColor': this.bgColor
-                }
-            },
-            styles() {
-                return {
-                    'background': this.bgColor,
-                    'margin-left': this.range + 'px'
-                }
+        methods: {
+            doDestroy() {
+                this.$destroy()
             }
-        }
+        },
+
+        beforeUpdate() {
+            console.log('5. Я beforeUpdated')
+        },
+        updated() {
+            console.log('6. Я updated')
+        },
+
+        created() {
+            console.log('2. Я Created')
+        },
+        beforeMount() {
+            console.log('3. Я beforeMount')
+        },
+        beforeCreate() {
+            console.log('1. Я beforeCreate')
+        },
+        mounted() {
+            console.log('4. Я mounted')
+        },
+
+        //удаление или уничтожение нашего компонента
+        beforeDestroy() {
+            console.log('7. Я beforeDestroy')
+        },
+        destroyed() {
+            console.log('8. Я destroyed')
+        },
+
     });
 </script>
 

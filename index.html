@@ -5,7 +5,20 @@
     <title>vue_course</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div>
+        <h2>Счетчик {{ counter }}</h2>
+        <button @click="counter ++">+1</button>
+      </div>
+
+      <hr>
+      
+      <div>
+        <h2>Счетчик {{ counter2 }}</h2>
+        <button @click="counter2 ++">+1</button>
+      </div>
+    </div>
+
     <script src="/dist/build.js"></script>
   </body>
 </html>

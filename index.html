@@ -1,64 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
-    <title>Vue Course</title>
-</head>
-
-<body>
-
-<div id="app">
-    <h1>{{ title }}</h1>
-    <button @click="title ='Change Title'">Change</button>
-    <button @click="doDestroy">Destroy</button>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
-
-<script>
-    new Vue({
-        el: '#app',
-        data: {
-            title: 'test button',
-        },
-        methods: {
-            doDestroy() {
-                this.$destroy()
-            }
-        },
-
-        beforeUpdate() {
-            console.log('5. Я beforeUpdated')
-        },
-        updated() {
-            console.log('6. Я updated')
-        },
-
-        created() {
-            console.log('2. Я Created')
-        },
-        beforeMount() {
-            console.log('3. Я beforeMount')
-        },
-        beforeCreate() {
-            console.log('1. Я beforeCreate')
-        },
-        mounted() {
-            console.log('4. Я mounted')
-        },
-
-        //удаление или уничтожение нашего компонента
-        beforeDestroy() {
-            console.log('7. Я beforeDestroy')
-        },
-        destroyed() {
-            console.log('8. Я destroyed')
-        },
-
-    });
-</script>
-
-
-</body>
+    <title>vue_course</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+  </body>
 </html>

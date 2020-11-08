@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
+    <app-pizza></app-pizza>
   </div>
 </template>
 

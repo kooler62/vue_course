@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Parent: {{ pizzaName }}</h1>
-    <app-pizza :pizzaName="pizzaName" :pizzaPrice="pizzaPrice"
+    <app-pizza :pizzaName="pizzaName" :pizzaPrice="pizzaPrice" :changeFunc="changeNameToPizza"
     @nameChanged="pizzaName = $event"></app-pizza>
   </div>
 </template>
@@ -16,6 +16,12 @@
             return {
                 pizzaName: 'Деревенская',
                 pizzaPrice: 115
+            }
+        },
+        methods: {
+            changeNameToPizza() {
+                this.pizzaName = 'sfsdfd';
+
             }
         },
         components: {

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h1>{{ msg }}</h1>
-    <app-pizza></app-pizza>
+    <h1>Parent: {{ pizzaName }}</h1>
+    <app-pizza :pizzaName="pizzaName" :pizzaPrice="pizzaPrice"></app-pizza>
   </div>
 </template>
 
@@ -13,13 +13,12 @@
         name: 'app',
         data() {
             return {
-                msg: 'Welcome to Your Vue App'
+                pizzaName: 'Деревенская',
+                pizzaPrice: 115
             }
         },
         components: {
             'appPizza': Pizza
-            //или
-            // 'app-pizza': Pizza
         }
     }
 </script>

@@ -1,18 +1,13 @@
 <template>
   <div>
     <h2>Pizza name {{ pizzaName}}</h2>
-    <p>price : {{ pizzaprice }}</p>
+    <p>price : {{ pizzaPrice }}</p>
   </div>
 </template>
 
 <script>
     export default {
-        data() {
-            return {
-                pizzaName: "Деревенская",
-                pizzaprice: 115
-            }
-        }
+        props: ['pizzaName', 'pizzaPrice'],
     }
 </script>
 

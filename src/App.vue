@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <h1>Parent: {{ pizzaName }}</h1>
-    <app-pizza :pizzaName="pizzaName" :pizzaPrice="pizzaPrice"></app-pizza>
+    <app-pizza :pizzaName="pizzaName" :pizzaPrice="pizzaPrice"
+    @nameChanged="pizzaName = $event"></app-pizza>
   </div>
 </template>
 

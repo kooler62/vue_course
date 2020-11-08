@@ -2,23 +2,19 @@
   <div>
     <h2>Pizza name {{ pizzaName }}/ {{ reversName }}</h2>
     <p>price : {{ pizzaPrice }}</p>
+    <button @click="changeName">Change Name</button>
   </div>
 </template>
 
 <script>
     export default {
-        // props: ['pizzaName', 'pizzaPrice'],
-        // props: {
-        //     pizzaName: String,
-        //     pizzaPrice: Number
-        // },
-        props: {
-            pizzaName: {
-                type: String,
-           //     required: true,
-                default: 'Empty'
-            },
-            pizzaPrice: Number
+        props: ['pizzaName', 'pizzaPrice'],
+        methods: {
+            changeName() {
+                this.pizzaName = 'Маргарита';
+                //имя события, значения, которыми хотим уведомить
+                this.$emit('nameChanged', this.pizzaName)
+            }
         },
         computed: {
             reversName() {

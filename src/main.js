@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-export const eventEmitter = new Vue();
+//импортируем директиву
+import MyDirective from "./color";
+
+// регистрируем до инициализации нашего Vue
+Vue.directive('colored', MyDirective);
 
 new Vue({
   el: '#app',

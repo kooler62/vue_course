@@ -1,11 +1,12 @@
 <template>
   <div>
-    <h1>Pizza</h1>
+    <h1>{{ pizzaName }}</h1>
   </div>
 </template>
 
 <script>
   export default {
+    props:['pizzaName']
   }
 </script>
 

@@ -1,12 +1,14 @@
 <template>
   <div>
-    <h1>{{ pizzaName }}</h1>
+    <slot name="title"></slot>
+    <hr>
+    <slot name="text"></slot>
+
   </div>
 </template>
 
 <script>
   export default {
-    props:['pizzaName']
   }
 </script>
 
@@ -14,5 +16,8 @@
 <style scoped>
   div {
     border: 1px solid green;
+  }
+  h2 {
+    color: red;
   }
 </style>

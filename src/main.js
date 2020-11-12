@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-//импортируем директиву
-import MyDirective from "./color";
+import ListNames from "./ListNames";
 
-// регистрируем до инициализации нашего Vue
-Vue.directive('colored', MyDirective);
+Vue.component('app-list', ListNames);
+
+Vue.mixin({
+  beforeUpdate() {
+    console.log('before Update')
+  }
+});
 
 new Vue({
   el: '#app',

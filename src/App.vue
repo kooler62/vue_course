@@ -13,10 +13,10 @@
 
 
           <!--    active-class="active" какой клас добавлять активной ссылке, tag показывает каким тегом обернуть ссылку      -->
-          <router-link tag="li" class="nav-item" :to="'/'">
+          <router-link tag="li" class="nav-item" exact :to="'/'">
             <a class="nav-link" active-class="active">Home</a>
           </router-link>
-          <router-link tag="li" class="nav-item" :to="'/pizzas'">
+          <router-link tag="li" class="nav-item" exact to="/pizzas">
             <a class="nav-link" active-class="active">Pizzas</a>
           </router-link>
         </ul>

@@ -12,5 +12,6 @@ export default new VueRouter({
       path: '/pizzas',
       component: Pizzas
     }
-  ]
+  ],
+  mode: 'history'
 });

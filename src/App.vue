@@ -4,10 +4,11 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <router-link class="nav-link" to="/">Home</router-link>
           </li>
+<!--          или байдим через :to -->
           <li class="nav-item">
-            <a class="nav-link" href="/pizzas">Pizzas</a>
+            <router-link class="nav-link" :to="'/pizzas'">Pizzas</router-link>
           </li>
         </ul>
       </div>

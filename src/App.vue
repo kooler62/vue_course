@@ -1,16 +1,9 @@
 <template>
-  <div id="app">
-    <h1>{{ msg }}</h1>
+  <div class="container">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue App'
-    }
-  }
-}
+  export default {}
 </script>

@@ -1,31 +1,60 @@
 <template>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-<!--          <li class="nav-item">-->
-<!--            <router-link class="nav-link" to="/">Home</router-link>-->
-<!--          </li>-->
-<!--          или байдим через :to -->
-<!--          <li class="nav-item active">-->
-<!--            <router-link class="nav-link" :to="'/pizzas'">Pizzas</router-link>-->
-<!--          </li>-->
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
 
-
-          <!--    active-class="active" какой клас добавлять активной ссылке, tag показывает каким тегом обернуть ссылку      -->
-          <router-link tag="li" class="nav-item" exact :to="'/'">
-            <a class="nav-link" active-class="active">Home</a>
-          </router-link>
-          <router-link tag="li" class="nav-item" exact to="/pizzas">
-            <a class="nav-link" active-class="active">Pizzas</a>
-          </router-link>
-        </ul>
+        <v-img
+          alt="Vuetify Name"
+          class="shrink mt-1 hidden-sm-and-down"
+          contain
+          min-width="100"
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+          width="100"
+        />
       </div>
-    </nav>
-    <router-view></router-view>
-  </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <HelloWorld/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-  export default {}
+import HelloWorld from './components/HelloWorld';
+
+export default {
+  name: 'App',
+
+  components: {
+    HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
+};
 </script>
